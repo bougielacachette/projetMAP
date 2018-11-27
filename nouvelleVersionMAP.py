@@ -105,7 +105,7 @@ def Ruine(simulationsX):
 def sup(X):
     return np.max(X)
 
-def Var(alpha,X):
+#def Var(alpha,X):
     
 
 
