@@ -102,14 +102,14 @@ def Ruine(simulationsX):
             a+=1
     return(a/float(NB_SIMULATIONS))
 
-def sup(X):
-    return np.max(X)
+def Var(alpha,simulationsX):
+    sup = [np.max(X) for X in simulationsX]
+    sup = np.sort(sup)[::-1].tolist()
+    print(sup[:40])
+    return(sup[int(alpha*NB_SIMULATIONS)-1])
 
-def Var(alpha,X):
-    sup = [np.max(x) for x in X]
-    sup = np.sort(sup)
-    return(sup[int(alpha*NB_SIMULATIONS)])
-    
+
+print(Var(0.004,simulationsX))
 
 
 
