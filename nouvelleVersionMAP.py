@@ -15,10 +15,10 @@ lam = 4
 nu = 2
 b1 = 4.
 b2 = 5.
-sigma1 = 0.1
-sigma2 = 0.3
+sigma1 = 0.05
+sigma2 = 0.15
 
-NB_SIMULATIONS = 100
+NB_SIMULATIONS = 10000
 NB_POINTS = 1000*t
 
 def echantillonTemps(t): 
