@@ -1,23 +1,34 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Nov 27 23:46:54 2018
-
-@author: bougon
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-alpha=0.005
+"""
+Paramètres du problème
+"""
+#Seuil de confiance 1-alpha pour la VaR
+alpha=0.05
 
-def f(x) :
-    return(30+0.0225*x+8/(2-x)-np.log(alpha)/x)
-    
-    
-X = np.linspace(0.2,1.8,10000)
+#Horizon temporel
+t = 2
+NB_POINTS = 1000*t
 
+#Paramètres de l'actif
+X0 = 0.
+lam = 1
+nu = 5
+b1 = 0.5
+b2 = 1.
+bstar= max(0,b1,b2)
+sigma1 = 0.01
+sigma2 = 0.02
+astar = sigma2**2
+
+
+def f(x): 
+    return X0+bstar+(astar)*x/2 + lam*t/(nu-x) - np.log(alpha)/x
+
+   
+X = np.linspace(1./nu,nu-1./nu,1000)
 plt.plot(X,f(X))
-
-np.min(f(X)) 
+print("BorneSup VaR = ")
+np.min(f(X))
