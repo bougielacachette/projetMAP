@@ -32,3 +32,31 @@ X = np.linspace(1./nu,nu-1./nu,1000)
 plt.plot(X,f(X))
 print("BorneSup VaR = ")
 np.min(f(X))
+
+"""
+Paramètres du problème
+"""
+#Seuil de confiance 1-alpha pour la VaR
+alpha=0.05
+
+#Horizon temporel
+t = 2
+NB_POINTS = 1000*t
+
+#Paramètres de l'actif
+X0 = 0.
+lam = 1
+nu = 5
+b1 = 0.5
+b2 = 1.
+bstar= max(0,b1,b2)
+sigma1 = 0.01
+sigma2 = 0.02
+astar = sigma2**2
+
+
+
+inf = X0+bstar+np.sqrt(astar)*stats.norm.ppf(alpha/2)
+    
+print("BorneInf VaR = ")
+print(inf)
